@@ -52,3 +52,26 @@ function saludo() {
 console.log("hola");
 }
 saludo(); // Dice hola.
+
+// typeof se utiliza para determinar el tipo de dato de una variable o expresión
+// Ejemplo de typeof con una variable no definida
+let x;
+console.log(typeof x); // Devuelve "undefined"
+
+// Ejemplo de typeof con un número
+let y = 10;
+console.log(typeof y); // Devuelve "number"
+
+// Ejemplo de typeof con una cadena de texto
+let z = "Hola";
+console.log(typeof z); // Devuelve "string"
+
+// Ejemplo de typeof con un objeto
+let obj = { nombre: "Juan" };
+console.log(typeof obj); // Devuelve "object"
+
+// Ejemplo de typeof con una función
+function miFuncion() {
+  console.log("Hola desde miFuncion");
+}
+console.log(typeof miFuncion); // Devuelve "function"
