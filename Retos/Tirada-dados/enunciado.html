@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Tirada de dados</title>
+</head>
+
+<body>
+  <h2>Tirada de dados - Enunciado</h2>
+  <p>En este ejercicio se debe crear un programa que imite el funcionamiento básico de una tirada de 3 dados.</p>
+  <ul>
+    <li>El programa tiene una página:
+      <ul>
+        <li>Al cargar o recargar la página, debe mostrar tres dados de seis caras:
+          <ul>
+            <li>Se deben mostrar tres dados al azar.</li>
+            <li>Un botón permite volver a tirar los tres dados. Enlace o recarga a la página actual</li>
+            <li>En cada tirada se muestra la puntuación total (sumando los tres valores).</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>No se deben cambiar el nombre del control incluido en las plantillas.</li>
+    <li>Al actualizar la primera página, los dados se volverán a lanzar y cambiarán los valores.</li>
+    <li>Capturas de pantalla de ejemplo:
+      <p class="captura"><img src="ejemplo/ejemplo.PNG" alt="Tirada de dados" width="606" height="330"></p>
+    </li>
+  </ul>
+
+  <h2>Tirada de dados - Ejemplo de código HTML</h2>
+
+  <div class="codigo">
+    <pre>
+      <code class="language-html">
+        &lt;p&gt;
+          &lt;img id="dado1" src="" alt="Dado 1" width="140" height="140"&gt;
+          &lt;img id="dado2" src="" alt="Dado 2" width="140" height="140"&gt;
+          &lt;img id="dado3" src="" alt="Dado 3" width="140" height="140"&gt;
+        &lt;/p&gt;
+
+        &lt;p id="total">Valor Total conseguido: &lt;/p&gt;
+
+        &lt;p&gt;
+          &lt;a href="#" id="tirar">Volver a tirar&lt;/a&gt;
+        &lt;/p&gt;
+      </code>
+    </pre>
+  </div>
+
+  <script>
+    function obtenerNumeroAleatorio() {
+      return Math.floor(Math.random() * 6) + 1;
+    }
+
+    function actualizarTirada() {
+      var dado1 = obtenerNumeroAleatorio();
+      var dado2 = obtenerNumeroAleatorio();
+      var dado3 = obtenerNumeroAleatorio();
+
+      document.getElementById('dado1').src = 'img/' + dado1 + '.svg';
+      document.getElementById('dado2').src = 'img/' + dado2 + '.svg';
+      document.getElementById('dado3').src = 'img/' + dado3 + '.svg';
+
+      var total = dado1 + dado2 + dado3;
+      document.getElementById('total').textContent = 'Valor Total conseguido: ' + total;
+    }
+
+    document.getElementById('tirar').addEventListener('click', function(event) {
+      event.preventDefault();
+      actualizarTirada();
+    });
+
+    actualizarTirada();
+  </script>
+</body>
+</html>

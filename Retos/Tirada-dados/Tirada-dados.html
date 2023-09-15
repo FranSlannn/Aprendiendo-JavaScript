@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Tirada de dados</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css" title="Color">
+</head>
+
+<body>
+  <h1>Tirada de dados</h1>
+  <p>
+    <img id="dado1" src="" alt="Dado 1" width="140" height="140">
+    <img id="dado2" src="" alt="Dado 2" width="140" height="140">
+    <img id="dado3" src="" alt="Dado 3" width="140" height="140">
+  </p>
+  <p id="total">Valor Total conseguido: </p>
+  <p>
+    <a href="#" id="volver"></a>
+  </p>
+ 
+  <form id="resumen-form">
+    <input type="hidden" name="dado1" value="">
+    <input type="hidden" name="dado2" value="">
+    <input type="hidden" name="dado3" value="">
+    <input type="submit" name="enviar" value="Volver a tirar">
+  </form>
+
+  <footer>
+    <p>Fran OTech</p>
+  </footer>
+
+  <script>
+    // Función para obtener un número aleatorio entre 1 y 6
+    function obtenerNumeroAleatorio() {
+      return Math.floor(Math.random() * 6) + 1;
+    }
+
+    // Función para actualizar las imágenes de los dados y el total
+    function actualizarTirada() {
+      var dado1 = obtenerNumeroAleatorio();
+      var dado2 = obtenerNumeroAleatorio();
+      var dado3 = obtenerNumeroAleatorio();
+
+      document.getElementById('dado1').src = 'img/' + dado1 + '.png';
+      document.getElementById('dado2').src = 'img/' + dado2 + '.png';
+      document.getElementById('dado3').src = 'img/' + dado3 + '.png';
+
+      var total = dado1 + dado2 + dado3;
+      document.getElementById('total').textContent = 'Valor Total conseguido: ' + total;
+
+      document.querySelector('input[name="dado1"]').value = dado1;
+      document.querySelector('input[name="dado2"]').value = dado2;
+      document.querySelector('input[name="dado3"]').value = dado3;
+    }
+
+    // Evento para volver a tirar
+    document.getElementById('volver').addEventListener('click', function(event) {
+      event.preventDefault();
+      actualizarTirada();
+    });
+
+    // Inicializar la tirada al cargar la página
+    actualizarTirada();
+  </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Suma y Resta</title>
+</head>
+<body>
+  <h1>Suma y Resta</h1>
+  <p>Total acumulado: <span id="total">0</span></p>
+  <img id="dice" src="" alt="Dado" width="140" height="140">
+  <button id="sumar">Sumar</button>
+  <button id="restar">Restar</button>
+  <a href="segunda.html">Ir a la segunda página</a>
+
+  <script>
+    var total = 0;
+
+    function obtenerNumeroAleatorio() {
+      return Math.floor(Math.random() * 6) + 1;
+    }
+
+    function actualizarTirada() {
+      var dado = obtenerNumeroAleatorio();
+      var dadoImg = document.getElementById('dice');
+      dadoImg.src = 'dado' + dado + '.png';
+      
+      if (dado <= total || total === 0) {
+        total += dado;
+      }
+
+      document.getElementById('total').textContent = total;
+    }
+
+    document.getElementById('sumar').addEventListener('click', function() {
+      actualizarTirada();
+    });
+
+    document.getElementById('restar').addEventListener('click', function() {
+      if (total > 0) {
+        total -= obtenerNumeroAleatorio();
+      }
+      document.getElementById('total').textContent = total;
+    });
+  </script>
+</body>
+</html>
