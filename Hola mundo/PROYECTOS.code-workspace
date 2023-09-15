@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "C:/Users/slann/Documents/PROYECTOS"
+		},
+		{
+			"name": "Aprendiendo-JavaScript",
+			"path": ".."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "Aprendiendo-JavaScript"
+	}
+}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Pares y nones</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css" title="Color">
+</head>
+
+<body>
+  <h1>Pares y nones</h1>
+  <p>Actualice la página para mostrar otra partida.</p>
+
+
+    <script>
+      // Objeto que mapea nombres de archivo a resultados
+      const imagenPorResultado = {
+        0: 'img/0.png',
+        1: 'img/1.png',
+        2: 'img/2.png',
+        3: 'img/3.png',
+        4: 'img/4.png',
+        5: 'img/5.png'        
+      };
+
+      const resultado = {
+        Gana: 'img/gana.png',
+        Pierde: 'img/pierde.png'
+      }
+
+      // Genera números aleatorios en JavaScript
+      function getRandomNumber(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+      }
+
+      // Genera las manos aleatorias para Jugador 1 y Jugador 2
+      const mano1 = getRandomNumber(0, 5);
+      const mano2 = getRandomNumber(0, 5);
+
+      // Obtén las rutas de las imágenes correspondientes
+      const imagenMano1 = imagenPorResultado[mano1];
+      const imagenMano2 = imagenPorResultado[mano2];
+
+      // Calcula el número total
+      const numero = mano1 + mano2;
+
+      // Determina al ganador
+      const ganador = numero % 2 === 0 ? 'Gana' : 'Pierde';
+      const perdedor = numero % 2 === 0 ? 'Pierde' : 'Gana';
+
+      // Mostrar el resultado en la tabla y en la consola     
+      document.write(`      
+      <table>
+        <tr>
+          <th colspan="2">Jugador 1<br>(pares)</th>
+          <th colspan="2">Jugador 2<br>(nones)</th>
+        </tr>
+        <tr>
+          <td><img src="${imagenMano1}" alt="${mano1}" height="200"></td>          
+          <td style="width: 1px;"></td> <!-- Espacio vacío de 1 píxel -->
+          <td><img src="${imagenMano2}" alt="${mano2}" height="200"></td>  
+        </tr>
+        <tr>
+          <td colspan="4"><h2>Total: ${numero} - ${ganador === 'Gana' ? 'Ha ganado PARES' : 'Ha ganado NONES'}</h2></td>
+        </tr>
+        <tr>
+          <td colspan="2">${ganador}</td>
+          <td colspan="2">${perdedor}</td>
+        </tr>
+        <tr>
+          <td colspan="2"><img src="${resultado[ganador]}" alt="Ganar" height="100"></td>
+          <td colspan="2"><img src="${resultado[perdedor]}" alt="Perder" height="100"></td>
+        </tr>
+      `);
+    </script>
+  </table>
+</body>
+</html>

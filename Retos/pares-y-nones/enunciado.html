@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examen - Pares y Nones en JavaScript</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Examen - Pares y Nones en JavaScript</h1>
+    <p>En este ejercicio, debes crear un programa que simule el juego de "Pares y Nones" en una página web. Las reglas del juego son las siguientes:</p>
+    <ol>
+        <li>Hay dos jugadores, el Jugador 1 y el Jugador 2.</li>
+        <li>Cada jugador muestra un número de dedos de la mano, de ninguno a todos los dedos.</li>
+        <li>El programa contará el total de dedos mostrados por ambos jugadores.</li>
+        <li>El Jugador 1 ganará si el total de dedos es un número par.</li>
+        <li>El Jugador 2 ganará si el total de dedos es un número impar.</li>
+    </ol>
+
+    <h2>Requisitos de la página web:</h2>
+    <ul>
+        <li>Se deben mostrar imágenes de las manos de ambos jugadores de manera aleatoria.</li>
+        <li>Se mostrará una imagen verde junto al jugador ganador y una imagen roja junto al jugador perdedor.</li>
+        <li>Al actualizar la página, se debe iniciar una nueva partida con manos aleatorias.</li>
+        <li>Debes mantener un registro en la sesión del historial de quién ha ganado las últimas partidas.</li>
+        <li>Debe haber un botón "Volver a tirar" para refrescar la página y jugar otra partida.</li>
+        <li>Debe haber un botón "Reset" para comenzar el historial nuevamente.</li>
+    </ul>
+
+    <p><strong>Nota:</strong> En JavaScript, puedes utilizar el operador '%' para verificar si un número es par o impar. Por ejemplo:</p>
+    <pre>
+        if (numero % 2 === 0) {
+          // Número par
+        } else {
+          // Número impar
+        }
+    </pre>
+    <ul>
+    <li>Capturas de pantalla de ejemplo:
+      <p class="captura"><img src="ejemplo/pares-y-nones-1.png" alt="Pares y nones" width="991" height="350"></p>
+      <p class="captura"><img src="ejemplo/pares-y-nones-2.png" alt="Pares y nones" width="991" height="350"></p>
+    </li>
+  </ul>
+
+<section id="ejemplo-html">
+  <h2>Pares y nones - Ejemplo de código HTML</h2>
+
+  <div class="codigo">
+    <pre class=" language-html"><code class=" language-html">    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tr</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>img/<span class="codigo-resaltado">gana</span>.svg<span class="token punctuation">"</span></span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span><span class="codigo-resaltado">Gana</span><span class="token punctuation">"</span></span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>100<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>img/<span class="codigo-resaltado">4</span>.svg<span class="token punctuation">"</span></span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span><span class="codigo-resaltado">4</span><span class="token punctuation">"</span></span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>200<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>img/<span class="codigo-resaltado">0</span>.svg<span class="token punctuation">"</span></span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span><span class="codigo-resaltado">0</span><span class="token punctuation">"</span></span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>200<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>img/<span class="codigo-resaltado">pierde</span>.svg<span class="token punctuation">"</span></span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span><span class="codigo-resaltado">Pierde</span><span class="token punctuation">"</span></span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>100<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tr</span><span class="token punctuation">&gt;</span></span></code>
+</pre>
+  </div>
+</section>
+
+    <p>Asegúrate de tener las imágenes necesarias en la carpeta adecuada y ajusta las rutas de las imágenes en tu código JavaScript y HTML. ¡Diviértete creando el juego!</p>
+</body>
+</html>
