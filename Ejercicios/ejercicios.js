@@ -2,9 +2,21 @@
 // Pregunta: ¿Cómo declaras una variable llamada `nombre` y asignas tu nombre a ella?
 // Respuesta:
 
+const nombre = "Fran";
+console.log(nombre);
+
 // Ejercicio 2: Condicionales
 // Pregunta: Escribe un programa que determine si un número es par o impar.
 // Respuesta:
+
+let numero = 2023;
+
+if (numero % 2 === 0) {
+    console.log(numero + "  es par");    
+} else {
+    console.log(numero + "  es inpar");    
+}
+
 
 // Ejercicio 3: Bucles
 // Pregunta: Utiliza un bucle `for` para imprimir los números del 1 al 10.
@@ -14,6 +26,13 @@
 // Pregunta: Crea una función que sume dos números y la llames con diferentes argumentos.
 // Respuesta:
 
+function suma(a , b) {   
+    return "La suma es " + (a+b);
+}
+prueba1 = suma(3,5);console.log(prueba1);
+prueba2 = suma(33,325);console.log(prueba2);
+prueba3 = suma(-354,521);console.log(prueba3);
+
 // Ejercicio 5: Arrays
 // Pregunta: Crea un array con nombres de frutas y muestra cada uno en la consola.
 // Respuesta:
@@ -22,9 +41,27 @@
 // Pregunta: Escribe un programa que compare dos números y muestre el mayor.
 // Respuesta:
 
+const a = 13;
+const b = 17;
+if ( a>b ) {
+    console.log("a es mayor que b");
+} else {
+    console.log("b es mayor que a");
+}
+
+
 // Ejercicio 7: Bucles
 // Pregunta: Escribe un programa que calcule la suma de los números del 1 al 100.
 // Respuesta:
+
+let suma = 0;
+
+for (let numero = 1; numero <= 100; numero++) {
+    suma += numero;
+}
+
+console.log("La suma de los números del 1 al 100 es: " + suma);
+
 
 // Ejercicio 8: Funciones
 // Pregunta: Escribe una función que determine si un número es primo.
